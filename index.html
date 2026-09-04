@@ -1,0 +1,2568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BREW & BITES | Premium Café</title>
+    <meta name="description"
+          content="Brew & Bites is a premium café serving specialty coffee, fresh meals, pastries and refreshing drinks.">
+    <meta name="keywords"
+          content="cafe, coffee, restaurant, breakfast, lunch, coffee shop, Tanzania">
+    <meta name="author" content="Brew & Bites Café">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: #29211c;
+            background: #fffaf5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        img {
+            width: 100%;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        button {
+            font-family: inherit;
+        }
+        :root {
+            --brown: #5b351f;
+            --dark: #211712;
+            --cream: #fffaf5;
+            --light: #f5eadf;
+            --gold: #c89554;
+            --white: #ffffff;
+            --gray: #746b65;
+            --border: #eaded3;
+            --shadow: 0 15px 40px rgba(53, 31, 17, 0.10);
+        }
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+        .section {
+            padding: 100px 0;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 55px;
+        }
+        .section-tag {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.15;
+            color: var(--dark);
+            margin-bottom: 18px;
+        }
+        .section-description {
+            color: var(--gray);
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 26px;
+            border-radius: 5px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: .3s ease;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .btn-primary {
+            background: var(--brown);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+        .btn-outline {
+            border-color: white;
+            color: white;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+        }
+        /* =========================================================
+           TOP BAR
+        ========================================================= */
+        .top-bar {
+            background: var(--dark);
+            color: white;
+            padding: 9px 0;
+            font-size: 13px;
+        }
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .top-info {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+        .top-info span {
+            display: flex;
+            gap: 7px;
+            align-items: center;
+        }
+        .top-social {
+            display: flex;
+            gap: 15px;
+        }
+        .top-social a:hover {
+            color: var(--gold);
+        }
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 250, 245, .96);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-container {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--brown);
+            color: white;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        .logo-text {
+            font-family: "Playfair Display", serif;
+            font-size: 23px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .logo-text small {
+            display: block;
+            font-family: "DM Sans", sans-serif;
+            font-size: 8px;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            left: 0;
+            bottom: -7px;
+            transition: .3s;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cart-btn {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            position: relative;
+        }
+        .cart-count {
+            position: absolute;
+            top: -4px;
+            right: -2px;
+            background: var(--gold);
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 10px;
+            display: grid;
+            place-items: center;
+        }
+        .mobile-menu {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        /* =========================================================
+           HERO
+        ========================================================= */
+        .hero {
+            min-height: 680px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg,
+                    rgba(23, 14, 9, .88),
+                    rgba(23, 14, 9, .55),
+                    rgba(23, 14, 9, .20)),
+                url("images/cafe-hero.jpg") center/cover no-repeat;
+            color: white;
+        }
+        .hero-content {
+            max-width: 720px;
+            padding: 90px 0;
+        }
+        .hero-label {
+            color: #e5b974;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(50px, 8vw, 86px);
+            line-height: 1.02;
+            margin-bottom: 25px;
+        }
+        .hero h1 span {
+            color: #e5b974;
+        }
+        .hero-description {
+            font-size: 18px;
+            max-width: 600px;
+            color: rgba(255,255,255,.85);
+            margin-bottom: 35px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .hero-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,.35);
+            backdrop-filter: blur(8px);
+        }
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 700px;
+            margin-left: auto;
+        }
+        .hero-feature {
+            padding: 20px;
+            border-left: 1px solid rgba(255,255,255,.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .hero-feature i {
+            color: #e5b974;
+            font-size: 22px;
+        }
+        .hero-feature strong {
+            display: block;
+            font-size: 14px;
+        }
+        .hero-feature span {
+            font-size: 11px;
+            color: rgba(255,255,255,.7);
+        }
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+        .about {
+            background: white;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-images {
+            position: relative;
+            padding-right: 60px;
+            padding-bottom: 50px;
+        }
+        .about-main-img {
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .about-small-img {
+            position: absolute;
+            width: 48%;
+            height: 220px;
+            object-fit: cover;
+            right: 0;
+            bottom: 0;
+            border: 10px solid white;
+            border-radius: 8px;
+        }
+        .experience-box {
+            position: absolute;
+            left: -25px;
+            bottom: 40px;
+            background: var(--brown);
+            color: white;
+            padding: 25px;
+            width: 145px;
+            text-align: center;
+        }
+        .experience-box strong {
+            display: block;
+            font-family: "Playfair Display", serif;
+            font-size: 40px;
+        }
+        .experience-box span {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .about-content .section-title {
+            text-align: left;
+        }
+        .about-text {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        .about-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+        .about-list li {
+            margin: 12px 0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .about-list i {
+            color: var(--gold);
+        }
+        /* =========================================================
+           STATS
+        ========================================================= */
+        .stats {
+            background: var(--light);
+            padding: 55px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+        }
+        .stat {
+            border-right: 1px solid #dfd0c1;
+        }
+        .stat:last-child {
+            border: none;
+        }
+        .stat strong {
+            display: block;
+            font-family: "Playfair Display", serif;
+            color: var(--brown);
+            font-size: 42px;
+        }
+        .stat span {
+            color: var(--gray);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* =========================================================
+           MENU
+        ========================================================= */
+        .menu {
+            background: var(--cream);
+        }
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 45px;
+        }
+        .menu-tab {
+            border: 1px solid var(--border);
+            background: white;
+            padding: 11px 20px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: .3s;
+        }
+        .menu-tab:hover,
+        .menu-tab.active {
+            background: var(--brown);
+            color: white;
+            border-color: var(--brown);
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .menu-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: .3s;
+        }
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+        .menu-image {
+            height: 220px;
+            object-fit: cover;
+        }
+        .menu-body {
+            padding: 22px;
+        }
+        .menu-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+        .menu-name {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+        }
+        .menu-price {
+            color: var(--brown);
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        .menu-description {
+            color: var(--gray);
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+        .add-cart {
+            width: 100%;
+            padding: 11px;
+            background: var(--light);
+            color: var(--brown);
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: .3s;
+        }
+        .add-cart:hover {
+            background: var(--brown);
+            color: white;
+        }
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+        .services {
+            background: white;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .service-card {
+            padding: 35px 25px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: .3s;
+        }
+        .service-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+        }
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            background: var(--light);
+            color: var(--brown);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 20px;
+            font-size: 23px;
+        }
+        .service-card h3 {
+            font-family: "Playfair Display", serif;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+        .service-card p {
+            color: var(--gray);
+            font-size: 13px;
+        }
+        /* =========================================================
+           PROMOTION
+        ========================================================= */
+        .promotion {
+            background:
+                linear-gradient(90deg, rgba(39,20,10,.92), rgba(39,20,10,.65)),
+                url("images/promotion.jpg") center/cover;
+            color: white;
+        }
+        .promotion-content {
+            max-width: 700px;
+        }
+        .promotion h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+        .promotion p {
+            color: rgba(255,255,255,.8);
+            margin-bottom: 25px;
+        }
+        /* =========================================================
+           GALLERY
+        ========================================================= */
+        .gallery {
+            background: var(--cream);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            grid-auto-rows: 230px;
+            gap: 12px;
+        }
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+            border-radius: 5px;
+        }
+        .gallery-item:first-child {
+            grid-row: span 2;
+        }
+        .gallery-item img {
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,.45);
+            display: grid;
+            place-items: center;
+            opacity: 0;
+            transition: .3s;
+            color: white;
+            font-size: 25px;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        /* =========================================================
+           TESTIMONIALS
+        ========================================================= */
+        .testimonials {
+            background: white;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .review {
+            background: var(--cream);
+            padding: 30px;
+            border: 1px solid var(--border);
+        }
+        .stars {
+            color: var(--gold);
+            margin-bottom: 17px;
+        }
+        .review-text {
+            color: #514942;
+            font-style: italic;
+            margin-bottom: 22px;
+        }
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .reviewer-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--brown);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+        }
+        .reviewer strong {
+            display: block;
+        }
+        .reviewer span {
+            color: var(--gray);
+            font-size: 12px;
+        }
+        /* =========================================================
+           RESERVATION
+        ========================================================= */
+        .reservation {
+            background: var(--dark);
+            color: white;
+        }
+        .reservation-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+        .reservation .section-title {
+            color: white;
+            text-align: left;
+        }
+        .reservation-text {
+            color: rgba(255,255,255,.7);
+            margin-bottom: 25px;
+        }
+        .contact-details {
+            list-style: none;
+        }
+        .contact-details li {
+            display: flex;
+            gap: 15px;
+            margin: 18px 0;
+            align-items: flex-start;
+        }
+        .contact-details i {
+            color: var(--gold);
+            margin-top: 5px;
+        }
+        .reservation-form {
+            background: white;
+            padding: 35px;
+            color: var(--dark);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .form-group {
+            margin-bottom: 3px;
+        }
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            padding: 13px;
+            outline: none;
+            background: #fffaf5;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            height: 110px;
+            resize: vertical;
+        }
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+        .contact {
+            background: var(--cream);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .contact-map {
+            min-height: 430px;
+            background:
+                linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)),
+                url("images/map.jpg") center/cover;
+            display: grid;
+            place-items: center;
+        }
+        .map-card {
+            background: white;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        .map-card i {
+            color: var(--brown);
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        /* =========================================================
+           NEWSLETTER
+        ========================================================= */
+        .newsletter {
+            background: var(--light);
+            text-align: center;
+        }
+        .newsletter-box {
+            max-width: 650px;
+            margin: auto;
+        }
+        .newsletter-form {
+            display: flex;
+            background: white;
+            padding: 6px;
+            margin-top: 25px;
+            border: 1px solid var(--border);
+        }
+        .newsletter-form input {
+            flex: 1;
+            border: none;
+            padding: 12px;
+            outline: none;
+            font-family: inherit;
+        }
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+        footer {
+            background: #18100c;
+            color: white;
+            padding-top: 70px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 45px;
+            padding-bottom: 50px;
+        }
+        .footer-brand p {
+            color: #a99e97;
+            font-size: 13px;
+            margin: 18px 0;
+            max-width: 330px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #443932;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            transition: .3s;
+        }
+        .footer-social a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+        footer h4 {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        footer ul {
+            list-style: none;
+        }
+        footer li {
+            margin: 10px 0;
+            color: #a99e97;
+            font-size: 13px;
+        }
+        footer li a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            border-top: 1px solid #30251f;
+            padding: 20px 0;
+            color: #847870;
+            font-size: 12px;
+        }
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        /* =========================================================
+           CART SIDEBAR
+        ========================================================= */
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.55);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+        }
+        .cart-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .cart-sidebar {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: min(420px, 95%);
+            background: white;
+            transform: translateX(100%);
+            transition: .4s;
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-overlay.active .cart-sidebar {
+            transform: translateX(0);
+        }
+        .cart-header {
+            padding: 22px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+        }
+        .cart-header h3 {
+            font-family: "Playfair Display", serif;
+        }
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .cart-item-info strong {
+            display: block;
+        }
+        .cart-item-info span {
+            color: var(--gray);
+            font-size: 13px;
+        }
+        .remove-item {
+            border: none;
+            background: transparent;
+            color: #b84b3b;
+            cursor: pointer;
+        }
+        .cart-footer {
+            padding: 22px;
+            border-top: 1px solid var(--border);
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 800;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        /* =========================================================
+           TOAST
+        ========================================================= */
+        .toast {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            background: var(--dark);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: .3s;
+            z-index: 3000;
+            font-size: 14px;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+        .back-top {
+            position: fixed;
+            right: 25px;
+            bottom: 85px;
+            width: 43px;
+            height: 43px;
+            border: none;
+            background: var(--brown);
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+            z-index: 100;
+        }
+        .back-top.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+        @media (max-width: 1000px) {
+            .nav-links {
+                gap: 15px;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-grid {
+                gap: 45px;
+            }
+        }
+        @media (max-width: 800px) {
+            .top-bar {
+                display: none;
+            }
+            .nav-container {
+                min-height: 70px;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .nav-links {
+                position: absolute;
+                left: 0;
+                top: 70px;
+                width: 100%;
+                background: var(--cream);
+                border-bottom: 1px solid var(--border);
+                padding: 25px;
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-actions .btn {
+                display: none;
+            }
+            .hero {
+                min-height: 700px;
+            }
+            .hero-features {
+                max-width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .about-grid,
+            .reservation-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-images {
+                margin-bottom: 20px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            .stat {
+                border-right: none;
+            }
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gallery-item:first-child {
+                grid-row: span 1;
+            }
+        }
+        @media (max-width: 600px) {
+            .section {
+                padding: 70px 0;
+            }
+            .hero-content {
+                padding: 70px 0 130px;
+            }
+            .hero h1 {
+                font-size: 50px;
+            }
+            .hero-description {
+                font-size: 15px;
+            }
+            .hero-features {
+                grid-template-columns: 1fr;
+            }
+            .hero-feature {
+                padding: 10px 15px;
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,.15);
+            }
+            .about-images {
+                padding-right: 30px;
+                padding-bottom: 35px;
+            }
+            .about-main-img {
+                height: 350px;
+            }
+            .about-small-img {
+                height: 150px;
+                border-width: 6px;
+            }
+            .experience-box {
+                left: -5px;
+                bottom: 25px;
+                padding: 15px;
+                width: 120px;
+            }
+            .experience-box strong {
+                font-size: 30px;
+            }
+            .menu-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full {
+                grid-column: auto;
+            }
+            .reservation-form {
+                padding: 22px;
+            }
+            .newsletter-form {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-text {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
+<div class="top-bar">
+    <div class="container top-bar-content">
+        <div class="top-info">
+            <span>
+                <i class="fa-regular fa-clock"></i>
+                Mon - Sun: 7:00 AM - 10:00 PM
+            </span>
+            <span>
+                <i class="fa-solid fa-location-dot"></i>
+                Dar es Salaam, Tanzania
+            </span>
+        </div>
+        <div class="top-social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+</div>
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="#home" class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-mug-hot"></i>
+            </div>
+            <div class="logo-text">
+                BREW & BITES
+                <small>Premium Café</small>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="cart-btn" onclick="openCart()">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count" id="cartCount">
+                    0
+                </span>
+            </button>
+            <a href="#reservation" class="btn btn-primary">
+                Reserve Table
+            </a>
+            <button class="mobile-menu" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-label">
+                Welcome to Brew & Bites
+            </div>
+            <h1>
+                Good Coffee.
+                <span>Good Food.</span>
+                Good Moments.
+            </h1>
+            <p class="hero-description">
+                A modern café created for great conversations,
+                delicious food and exceptional coffee.
+                Start your morning with us or relax after a long day.
+            </p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">
+                    Explore Our Menu
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#reservation" class="btn btn-outline">
+                    Book a Table
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="hero-bottom">
+        <div class="container">
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="fa-solid fa-seedling"></i>
+                    <div>
+                        <strong>Fresh Ingredients</strong>
+                        <span>Quality in every bite</span>
+                    </div>
+                </div>
+                <div class="hero-feature">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <div>
+                        <strong>Specialty Coffee</strong>
+                        <span>Expertly brewed</span>
+                    </div>
+                </div>
+                <div class="hero-feature">
+                    <i class="fa-solid fa-heart"></i>
+                    <div>
+                        <strong>Made With Love</strong>
+                        <span>Served with care</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+<section class="section about" id="about">
+    <div class="container about-grid">
+        <div class="about-images">
+            <img
+                src="images/about-main.jpg"
+                class="about-main-img"
+                alt="Inside our café">
+            <img
+                src="images/about-small.jpg"
+                class="about-small-img"
+                alt="Fresh coffee">
+            <div class="experience-box">
+                <strong>8+</strong>
+                <span>Years of Excellence</span>
+            </div>
+        </div>
+        <div class="about-content">
+            <div class="section-tag">
+                Our Story
+            </div>
+            <h2 class="section-title">
+                More Than Just a Café
+            </h2>
+            <p class="about-text">
+                Brew & Bites was created from a simple idea:
+                bring people together through great coffee,
+                fresh food and a welcoming atmosphere.
+            </p>
+            <p class="about-text">
+                Every cup is carefully prepared by our baristas
+                and every dish is made using fresh ingredients.
+                Whether you're meeting friends, working remotely
+                or enjoying a quiet breakfast, we have a place for you.
+            </p>
+            <ul class="about-list">
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Freshly prepared meals
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Premium coffee beans
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Comfortable working space
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Friendly professional service
+                </li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">
+                Discover Our Story
+            </a>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     STATS
+========================================================= -->
+<section class="stats">
+    <div class="container stats-grid">
+        <div class="stat">
+            <strong>8+</strong>
+            <span>Years Experience</span>
+        </div>
+        <div class="stat">
+            <strong>50+</strong>
+            <span>Menu Items</span>
+        </div>
+        <div class="stat">
+            <strong>15K+</strong>
+            <span>Happy Customers</span>
+        </div>
+        <div class="stat">
+            <strong>4.9</strong>
+            <span>Customer Rating</span>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     MENU
+========================================================= -->
+<section class="section menu" id="menu">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">
+                Our Menu
+            </div>
+            <h2 class="section-title">
+                Delicious From Morning to Night
+            </h2>
+            <p class="section-description">
+                Discover our selection of coffee, breakfast,
+                meals, pastries and refreshing drinks.
+            </p>
+        </div>
+        <div class="menu-tabs">
+            <button class="menu-tab active" data-category="all">
+                All
+            </button>
+            <button class="menu-tab" data-category="coffee">
+                Coffee
+            </button>
+            <button class="menu-tab" data-category="breakfast">
+                Breakfast
+            </button>
+            <button class="menu-tab" data-category="lunch">
+                Lunch
+            </button>
+            <button class="menu-tab" data-category="drinks">
+                Drinks
+            </button>
+            <button class="menu-tab" data-category="dessert">
+                Dessert
+            </button>
+        </div>
+        <div class="menu-grid" id="menuGrid">
+            <!-- ITEM 1 -->
+            <article class="menu-card" data-category="coffee">
+                <img
+                    src="images/espresso.jpg"
+                    class="menu-image"
+                    alt="Espresso">
+                <div class="menu-body">
+                    <div class="menu-top">
+                        <h3 class="menu-name">
+                            Classic Espresso
+                        </h3>
+                        <span class="menu-price">
+                            TZS 5,000
+                        </span>
+                    </div>
+                    <p class="menu-description">
+                        Rich and intense espresso made from
+                        freshly roasted premium coffee beans.
+                    </p>
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Classic Espresso', 5000)">
+                        Add to Order
+                    </button>
+                </div>
+            </article>
+            <!-- ITEM 2 -->
+            <article class="menu-card" data-category="coffee">
+                <img
+                    src="images/cappuccino.jpg"
+                    class="menu-image"
+                    alt="Cappuccino">
+                <div class="menu-body">
+                    <div class="menu-top">
+                        <h3 class="menu-name">
+                            Cappuccino
+                        </h3>
+                        <span class="menu-price">
+                            TZS 7,000
+                        </span>
+                    </div>
+                    <p class="menu-description">
+                        Smooth espresso topped with steamed milk
+                        and silky foam.
+                    </p>
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Cappuccino', 7000)">
+                        Add to Order
+                    </button>
+                </div>
+            </article>
+            <!-- ITEM 3 -->
+            <article class="menu-card" data-category="coffee">
+                <img
+                    src="images/latte.jpg"
+                    class="menu-image"
+                    alt="Café Latte">
+                <div class="menu-body">
+                    <div class="menu-top">
+                        <h3 class="menu-name">
+                            Café Latte
+                        </h3>
+                        <span class="menu-price">
+                            TZS 7,500
+                        </span>
+                    </div>
+                    <p class="menu-description">
+                        Creamy espresso combined with perfectly
+                        steamed milk.
+                    </p>
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Cafe Latte', 7500)">
+                        Add to Order
+                    </button>
+                </div>
+            </article>
+            <!-- ITEM 4 -->
+            <article class="menu-card" data-category="breakfast">
+                <img
+                    src="images/breakfast.jpg"
+                    class="menu-image"
+                    alt="English Breakfast">
+                <div class="menu-body">
+                    <div class="menu-top">
+                        <h3 class="menu-name">
+                            Signature Breakfast
+                        </h3>
+                        <span class="menu-price">
+                            TZS 18,000
+                        </span>
+                    </div>
+                    <p class="menu-description">
+                        Eggs, sausages, toast, baked beans,
+                        mushrooms and fresh vegetables.
+                    </p>
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Signature Breakfast', 18000)">
+                        Add to Order
+                    </button>
+                </div>
+            </article>
+            <!-- ITEM 5 -->
+            <article class="menu-card" data-category="breakfast">
+                <img
+                    src="images/pancakes.jpg"
+                    class="menu-image"
+                    alt="Pancakes">
+                <div class="menu-body">
+                    <div class="menu-top">
+                        <h3 class="menu-name">
+                            Berry Pancakes
+                        </h3>
+                        <span class="menu-price">
+                            TZS 15,000
+                        </span>
+                    </div>
+                    <p class="menu-description">
+                        Fluffy pancakes served with berries,
+                        honey and whipped cream.
+                    </p>
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Berry Pancakes', 15000)">
+                        Add to Order
+                    </button>
+                </div>
+            </article>
+            <!-- ITEM 6 -->
+            <article class="menu-card" data-category="lunch">
+                <img
+                    src="images/chicken.jpg"
+                    class="menu-image"
+                    alt="Grilled Chicken">
+                <div class="menu-body">
+                    <div class="menu-top">
+                        <h3 class="menu-name">
+                            Grilled Chicken
+                        </h3>
+                        <span class="menu-price">
+                            TZS 22,000
+                        </span>
+                    </div>
+                    <p class="menu-description">
+                        Tender grilled chicken served with
+                        fresh salad and seasoned potatoes.
+                    </p>
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Grilled Chicken', 22000)">
+                        Add to Order
+                    </button>
+                </div>
+            </article>
+            <!-- ITEM 7 -->
+            <article class="menu-card" data-category="lunch">
+                <img
+                    src="images/pasta.jpg"
+                    class="menu-image"
+                    alt="Creamy Pasta">
+                <div class="menu-body">
+                    <div class="menu-top">
+                        <h3 class="menu-name">
+                            Creamy Chicken Pasta
+                        </h3>
+                        <span class="menu-price">
+                            TZS 20,000
+                        </span>
+                    </div>
+                    <p class="menu-description">
+                        Fresh pasta tossed in a creamy sauce
+                        with grilled chicken and herbs.
+                    </p>
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Creamy Chicken Pasta', 20000)">
+                        Add to Order
+                    </button>
+                </div>
+            </article>
+            <!-- ITEM 8 -->
+            <article class="menu-card" data-category="drinks">
+                <img
+                    src="images/juice.jpg"
+                    class="menu-image"
+                    alt="Fresh Juice">
+                <div class="menu-body">
+                    <div class="menu-top">
+                        <h3 class="menu-name">
+                            Fresh Tropical Juice
+                        </h3>
+                        <span class="menu-price">
+                            TZS 8,000
+                        </span>
+                    </div>
+                    <p class="menu-description">
+                        Freshly blended tropical fruits served
+                        chilled.
+                    </p>
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Fresh Tropical Juice', 8000)">
+                        Add to Order
+                    </button>
+                </div>
+            </article>
+            <!-- ITEM 9 -->
+            <article class="menu-card" data-category="dessert">
+                <img
+                    src="images/cake.jpg"
+                    class="menu-image"
+                    alt="Chocolate Cake">
+                <div class="menu-body">
+                    <div class="menu-top">
+                        <h3 class="menu-name">
+                            Chocolate Cake
+                        </h3>
+                        <span class="menu-price">
+                            TZS 10,000
+                        </span>
+                    </div>
+                    <p class="menu-description">
+                        Rich chocolate cake served with
+                        vanilla cream.
+                    </p>
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Chocolate Cake', 10000)">
+                        Add to Order
+                    </button>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+<section class="section services" id="services">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">
+                What We Offer
+            </div>
+            <h2 class="section-title">
+                Everything You Need
+            </h2>
+            <p class="section-description">
+                From your morning coffee to private events,
+                we are here to make every experience special.
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </div>
+                <h3>Specialty Coffee</h3>
+                <p>
+                    Carefully selected beans prepared by
+                    professional baristas.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <h3>Fresh Meals</h3>
+                <p>
+                    Delicious meals prepared fresh every day
+                    using quality ingredients.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <h3>Delivery</h3>
+                <p>
+                    Enjoy your favorite meals wherever you
+                    are with our delivery service.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                </div>
+                <h3>Private Events</h3>
+                <p>
+                    Celebrate birthdays, meetings and special
+                    occasions with us.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     PROMOTION
+========================================================= -->
+<section class="section promotion">
+    <div class="container">
+        <div class="promotion-content">
+            <div class="section-tag">
+                This Week
+            </div>
+            <h2>
+                Morning Coffee & Breakfast Special
+            </h2>
+            <p>
+                Start your day right. Get a freshly brewed
+                coffee together with our signature breakfast
+                at a special price.
+            </p>
+            <a href="#menu" class="btn btn-primary">
+                View Special Offers
+            </a>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+<section class="section gallery" id="gallery">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">
+                Our Gallery
+            </div>
+            <h2 class="section-title">
+                A Place Worth Visiting
+            </h2>
+            <p class="section-description">
+                Take a look inside Brew & Bites.
+            </p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/gallery-1.jpg" alt="Cafe interior">
+                <div class="gallery-overlay">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery-2.jpg" alt="Coffee">
+                <div class="gallery-overlay">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery-3.jpg" alt="Food">
+                <div class="gallery-overlay">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery-4.jpg" alt="Cafe table">
+                <div class="gallery-overlay">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery-5.jpg" alt="Dessert">
+                <div class="gallery-overlay">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     REVIEWS
+========================================================= -->
+<section class="section testimonials" id="reviews">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">
+                Customer Reviews
+            </div>
+            <h2 class="section-title">
+                Loved By Our Customers
+            </h2>
+            <p class="section-description">
+                We believe the best recommendation comes
+                from the people who visit us.
+            </p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review">
+                <div class="stars">
+                    ★★★★★
+                </div>
+                <p class="review-text">
+                    "The coffee is excellent and the atmosphere
+                    is beautiful. One of my favorite places in
+                    the city."
+                </p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">
+                        AM
+                    </div>
+                    <div>
+                        <strong>Amanda M.</strong>
+                        <span>Regular Customer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review">
+                <div class="stars">
+                    ★★★★★
+                </div>
+                <p class="review-text">
+                    "Amazing breakfast and very friendly staff.
+                    The food arrived fresh and beautifully presented."
+                </p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">
+                        DK
+                    </div>
+                    <div>
+                        <strong>David K.</strong>
+                        <span>Food Lover</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review">
+                <div class="stars">
+                    ★★★★★
+                </div>
+                <p class="review-text">
+                    "Perfect place for meetings and working.
+                    Fast Wi-Fi, great coffee and a very relaxing
+                    environment."
+                </p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">
+                        SN
+                    </div>
+                    <div>
+                        <strong>Sarah N.</strong>
+                        <span>Business Customer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     RESERVATION
+========================================================= -->
+<section class="section reservation" id="reservation">
+    <div class="container reservation-grid">
+        <div>
+            <div class="section-tag">
+                Reservations
+            </div>
+            <h2 class="section-title">
+                Reserve Your Table
+            </h2>
+            <p class="reservation-text">
+                Planning a breakfast, lunch, dinner or special
+                celebration? Reserve your table and let us
+                prepare something special for you.
+            </p>
+            <ul class="contact-details">
+                <li>
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <strong>Call Us</strong>
+                        <br>
+                        +255 700 000 000
+                    </div>
+                </li>
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <br>
+                        hello@brewandbites.com
+                    </div>
+                </li>
+                <li>
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <strong>Opening Hours</strong>
+                        <br>
+                        Every day: 7:00 AM - 10:00 PM
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <form class="reservation-form" id="reservationForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>
+                        Full Name
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your name"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Phone Number
+                    </label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="+255..."
+                        required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Date
+                    </label>
+                    <input
+                        type="date"
+                        id="date"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Time
+                    </label>
+                    <select id="time" required>
+                        <option value="">
+                            Select time
+                        </option>
+                        <option>08:00 AM</option>
+                        <option>09:00 AM</option>
+                        <option>10:00 AM</option>
+                        <option>12:00 PM</option>
+                        <option>02:00 PM</option>
+                        <option>04:00 PM</option>
+                        <option>06:00 PM</option>
+                        <option>08:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Guests
+                    </label>
+                    <select id="guests" required>
+                        <option value="">
+                            Number of guests
+                        </option>
+                        <option>1 Guest</option>
+                        <option>2 Guests</option>
+                        <option>3 Guests</option>
+                        <option>4 Guests</option>
+                        <option>5 Guests</option>
+                        <option>6+ Guests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Occasion
+                    </label>
+                    <select>
+                        <option>Regular Visit</option>
+                        <option>Birthday</option>
+                        <option>Business Meeting</option>
+                        <option>Anniversary</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group full">
+                    <label>
+                        Special Request
+                    </label>
+                    <textarea
+                        placeholder="Any special requests?"></textarea>
+                </div>
+                <div class="form-group full">
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        style="width:100%;">
+                        Confirm Reservation
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+<section class="section contact" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">
+                Find Us
+            </div>
+            <h2 class="section-title">
+                Come Visit Us
+            </h2>
+            <p class="section-description">
+                We'd love to welcome you to Brew & Bites.
+            </p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-map">
+                <div class="map-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h3>
+                        Brew & Bites Café
+                    </h3>
+                    <p>
+                        Masaki, Dar es Salaam<br>
+                        Tanzania
+                    </p>
+                    <br>
+                    <a
+                        href="https://maps.google.com"
+                        target="_blank"
+                        class="btn btn-primary">
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3 style="
+                    font-family:'Playfair Display',serif;
+                    font-size:30px;
+                    margin-bottom:25px;
+                ">
+                    Contact Information
+                </h3>
+                <ul class="contact-details"
+                    style="color:#29211c;">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Address</strong>
+                            <br>
+                            Masaki, Dar es Salaam, Tanzania
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong>
+                            <br>
+                            +255 700 000 000
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <br>
+                            +255 700 000 000
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <br>
+                            hello@brewandbites.com
+                        </div>
+                    </li>
+                </ul>
+                <div style="margin-top:30px;">
+                    <a
+                        href="https://wa.me/255700000000"
+                        target="_blank"
+                        class="btn btn-primary">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     NEWSLETTER
+========================================================= -->
+<section class="section newsletter">
+    <div class="container">
+        <div class="newsletter-box">
+            <div class="section-tag">
+                Stay Connected
+            </div>
+            <h2 class="section-title">
+                Get Café News & Special Offers
+            </h2>
+            <p class="section-description">
+                Subscribe for new menu items, promotions,
+                events and exclusive offers.
+            </p>
+            <form
+                class="newsletter-form"
+                id="newsletterForm">
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    required>
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <div class="logo-text"
+                         style="color:white;">
+                        BREW & BITES
+                        <small>Premium Café</small>
+                    </div>
+                </a>
+                <p>
+                    Great coffee, fresh food and memorable
+                    moments. Your favorite place to eat,
+                    meet and relax.
+                </p>
+                <div class="footer-social">
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#menu">Our Menu</a>
+                    </li>
+                    <li>
+                        <a href="#gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li>
+                        <a href="#services">
+                            Dine In
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#services">
+                            Take Away
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#services">
+                            Delivery
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#services">
+                            Private Events
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#reservation">
+                            Reservations
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4>Opening Hours</h4>
+                <ul>
+                    <li>
+                        Monday - Friday
+                        <br>
+                        <strong style="color:white;">
+                            7:00 AM - 10:00 PM
+                        </strong>
+                    </li>
+                    <li>
+                        Saturday - Sunday
+                        <br>
+                        <strong style="color:white;">
+                            7:00 AM - 11:00 PM
+                        </strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <span>
+                    © 2026 Brew & Bites Café. All rights reserved.
+                </span>
+                <span>
+                    Designed for modern café businesses.
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- =========================================================
+     CART
+========================================================= -->
+<div class="cart-overlay" id="cartOverlay">
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>
+                Your Order
+            </h3>
+            <button
+                class="close-cart"
+                onclick="closeCart()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="
+                text-align:center;
+                color:#746b65;
+                padding:40px 0;
+            ">
+                Your cart is empty.
+            </p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotal">
+                    TZS 0
+                </span>
+            </div>
+            <button
+                class="btn btn-primary"
+                style="width:100%;"
+                onclick="checkoutWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i>
+                Order on WhatsApp
+            </button>
+        </div>
+    </div>
+</div>
+<!-- =========================================================
+     TOAST
+========================================================= -->
+<div class="toast" id="toast">
+    Item added to your order.
+</div>
+<!-- =========================================================
+     BACK TO TOP
+========================================================= -->
+<button
+    class="back-top"
+    id="backTop"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+    function toggleMenu() {
+        document
+            .getElementById("navLinks")
+            .classList.toggle("active");
+    }
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(link => {
+            link.addEventListener("click", () => {
+                document
+                    .getElementById("navLinks")
+                    .classList.remove("active");
+            });
+        });
+    /* =========================================================
+       CART SYSTEM
+    ========================================================= */
+    let cart = [];
+    function addToCart(name, price) {
+        const existing = cart.find(
+            item => item.name === name
+        );
+        if (existing) {
+            existing.quantity++;
+        } else {
+            cart.push({
+                name: name,
+                price: price,
+                quantity: 1
+            });
+        }
+        updateCart();
+        showToast(name + " added to your order.");
+    }
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCart();
+    }
+    function updateCart() {
+        const cartItems =
+            document.getElementById("cartItems");
+        const cartCount =
+            document.getElementById("cartCount");
+        const cartTotal =
+            document.getElementById("cartTotal");
+        let totalItems = 0;
+        let totalPrice = 0;
+        if (cart.length === 0) {
+            cartItems.innerHTML = `
+                <p style="
+                    text-align:center;
+                    color:#746b65;
+                    padding:40px 0;
+                ">
+                    Your cart is empty.
+                </p>
+            `;
+        } else {
+            cartItems.innerHTML = "";
+            cart.forEach((item, index) => {
+                totalItems += item.quantity;
+                totalPrice +=
+                    item.price * item.quantity;
+                const div =
+                    document.createElement("div");
+                div.className = "cart-item";
+                div.innerHTML = `
+                    <div class="cart-item-info">
+                        <strong>
+                            ${item.name}
+                        </strong>
+                        <span>
+                            TZS ${formatMoney(item.price)}
+                            × ${item.quantity}
+                        </span>
+                    </div>
+                    <button
+                        class="remove-item"
+                        onclick="removeFromCart(${index})">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                `;
+                cartItems.appendChild(div);
+            });
+        }
+        cartCount.textContent = totalItems;
+        cartTotal.textContent =
+            "TZS " + formatMoney(totalPrice);
+    }
+    function formatMoney(number) {
+        return new Intl.NumberFormat("en-TZ")
+            .format(number);
+    }
+    function openCart() {
+        document
+            .getElementById("cartOverlay")
+            .classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+    function closeCart() {
+        document
+            .getElementById("cartOverlay")
+            .classList.remove("active");
+        document.body.style.overflow = "";
+    }
+    document
+        .getElementById("cartOverlay")
+        .addEventListener("click", function(e) {
+            if (e.target === this) {
+                closeCart();
+            }
+        });
+    /* =========================================================
+       WHATSAPP ORDER
+    ========================================================= */
+    function checkoutWhatsApp() {
+        if (cart.length === 0) {
+            showToast("Please add something to your order.");
+            return;
+        }
+        let message =
+            "Hello Brew & Bites! I would like to place an order:%0A%0A";
+        let total = 0;
+        cart.forEach(item => {
+            const itemTotal =
+                item.price * item.quantity;
+            total += itemTotal;
+            message +=
+                "• " +
+                item.name +
+                " × " +
+                item.quantity +
+                " - TZS " +
+                formatMoney(itemTotal) +
+                "%0A";
+        });
+        message +=
+            "%0A*Total: TZS " +
+            formatMoney(total) +
+            "*";
+        const phone =
+            "255700000000";
+        window.open(
+            "https://wa.me/" +
+            phone +
+            "?text=" +
+            message,
+            "_blank"
+        );
+    }
+    /* =========================================================
+       MENU FILTER
+    ========================================================= */
+    const menuTabs =
+        document.querySelectorAll(".menu-tab");
+    const menuCards =
+        document.querySelectorAll(".menu-card");
+    menuTabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            menuTabs.forEach(t =>
+                t.classList.remove("active")
+            );
+            tab.classList.add("active");
+            const category =
+                tab.dataset.category;
+            menuCards.forEach(card => {
+                if (
+                    category === "all" ||
+                    card.dataset.category === category
+                ) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    });
+    /* =========================================================
+       TOAST
+    ========================================================= */
+    function showToast(message) {
+        const toast =
+            document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2500);
+    }
+    /* =========================================================
+       RESERVATION FORM
+    ========================================================= */
+    document
+        .getElementById("reservationForm")
+        .addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name =
+                document.getElementById("name").value;
+            const phone =
+                document.getElementById("phone").value;
+            const date =
+                document.getElementById("date").value;
+            const time =
+                document.getElementById("time").value;
+            const guests =
+                document.getElementById("guests").value;
+            const message =
+                "Hello Brew & Bites! I would like to make a reservation.%0A%0A" +
+                "Name: " + name + "%0A" +
+                "Phone: " + phone + "%0A" +
+                "Date: " + date + "%0A" +
+                "Time: " + time + "%0A" +
+                "Guests: " + guests;
+            window.open(
+                "https://wa.me/255700000000?text=" +
+                message,
+                "_blank"
+            );
+            showToast(
+                "Opening WhatsApp to confirm your reservation."
+            );
+        });
+    /* =========================================================
+       NEWSLETTER
+    ========================================================= */
+    document
+        .getElementById("newsletterForm")
+        .addEventListener("submit", function(e) {
+            e.preventDefault();
+            showToast(
+                "Thank you for subscribing!"
+            );
+            this.reset();
+        });
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
+    window.addEventListener("scroll", () => {
+        const backTop =
+            document.getElementById("backTop");
+        if (window.scrollY > 500) {
+            backTop.classList.add("show");
+        } else {
+            backTop.classList.remove("show");
+        }
+    });
+    /* =========================================================
+       ACTIVE NAVIGATION
+    ========================================================= */
+    const sections =
+        document.querySelectorAll("section[id]");
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop =
+                section.offsetTop - 150;
+            if (window.scrollY >= sectionTop) {
+                current =
+                    section.getAttribute("id");
+            }
+        });
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+                link.classList.remove("active");
+                if (
+                    link.getAttribute("href") ===
+                    "#" + current
+                ) {
+                    link.classList.add("active");
+                }
+            });
+    });
+    /* =========================================================
+       SET MINIMUM RESERVATION DATE
+    ========================================================= */
+    const dateInput =
+        document.getElementById("date");
+    const today =
+        new Date().toISOString().split("T")[0];
+    dateInput.min = today;
+</script>
+</body>
+</html>
